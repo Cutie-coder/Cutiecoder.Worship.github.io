@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Worship Ndlovu</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+
+  <style>
+    /* Basic Reset & Font */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f5f9fa;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #19cfcf;
+      position: relative;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .brand .logo-mark {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #fff;
+      background: #024c52;
+      padding: 0.5rem 0.8rem;
+      border-radius: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      margin: 0 0.8rem;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #024c52;
+    }
+
+    /* Responsive Menu */
+    .menu-toggle {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 2rem;
+        background: #024c52;
+        border-radius: 8px;
+        width: 200px;
+        text-align: right;
+      }
+
+      nav.active {
+        display: block;
+      }
+
+      nav a {
+        display: block;
+        padding: 0.8rem 1rem;
+        color: white;
+      }
+
+      nav a:hover {
+        background-color: #19cfcf;
+      }
+    }
+
+    /* Page Content */
+    main.container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    h1 {
+      color: #024c52;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .about-card,
+    .about-details {
+      background-color: #e9f8f9;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+      text-align: left;
+    }
+
+    .about-details ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .about-details li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #cde6e7;
+    }
+
+    .about-details li:last-child {
+      border-bottom: none;
+    }
+
+    footer {
+      background-color: #024c52;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    footer .small {
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header container">
+    <div class="brand">
+      <div class="logo-mark">WN</div>
+    </div>
+
+    <button class="menu-toggle">☰</button>
+
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="resume.html">Resume</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container page">
+    <h1>About Me</h1>
+
+    <div class="about-card flat-card">
+      <p>
+        Hello, I’m <strong>Worship Ndlovu</strong> — a passionate
+        <strong>Developer</strong> and <strong>Data Analyst</strong> who loves
+        transforming ideas into clean, user-focused digital experiences.
+      </p>
+
+      <p>
+        My journey in technology began with curiosity and creativity. I’ve since
+        worked on diverse projects that sharpened my technical, analytical, and
+        problem-solving skills. Whether building full-stack web applications or
+        analyzing complex datasets, I aim to create tools that make life easier
+        and more efficient.
+      </p>
+
+      <p>
+        I believe in continuous learning and collaboration. Each project I take
+        on is an opportunity to grow — not only in skill but also in impact.
+      </p>
+    </div>
+
+    <section class="about-details flat-card" style="margin-top:16px;">
+      <h4>Quick Facts</h4>
+      <ul class="small">
+        <li>🎓 IT Student specializing in software and analytics</li>
+        <li>💻 Skilled in Python, C++, SQL, and JavaScript</li>
+        <li>📊 Experienced with Excel and data visualization tools</li>
+        <li>🤝 Passionate about teamwork and digital innovation</li>
+        <li>📍 Based in Johannesburg, South Africa</li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer container">
+    <div>© <span id="year-5"></span> Worship Ndlovu</div>
+    <div class="small">Strive for progress, not perfection.</div>
+  </footer>
+
+  <script>
+    // Responsive Menu Script
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const nav = document.querySelector(".nav");
+      const yearSpan = document.getElementById("year-5");
+
+      if (menuToggle && nav) {
+        menuToggle.addEventListener("click", () => {
+          nav.classList.toggle("active");
+        });
+      }
+
+      // Auto-update year
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #333;
+  background-color: #7c4c66;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #f5f5f5;
+  position: relative;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+.menu-toggle {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none; /* Hidden on desktop */
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #16bec4;
+}
+
+/* Dropdown Menu (Mobile) */
+.dropdown-menu {
+  display: flex;
+}
+
+.dropdown-menu.active {
+  display: flex;
+}
+
+/* Sections */
+section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: #0077cc;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #005fa3;
+}
+
+/* About Section */
+.about p {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+}
+
+.stat span {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+/* Projects */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.project {
+  background-color: #e0e0e0;
+  padding: 2rem;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+  background-color: #0d8488;
+  padding: 2rem;
+  text-align: center;
+}
+
+.social a {
+  margin: 0 0.5rem;
+  font-weight: bold;
+  color: #333;
+  transition: color 0.3s;
+}
+
+.social a:hover {
+  color: #15818f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 2rem;
+    background: #692859;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+
+  nav.active {
+    display: flex;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+
+/*CONTACT PAGE*/
+
+.contact {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.contact-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.contact-card form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.contact-card form input,
+.contact-card form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-card form .btn {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Contact details */
+.contact-details {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: left;
+}
+
+.contact-details h3 {
+  margin-bottom: 1rem;
+}
+
+.contact-details p {
+  margin: 0.3rem 0;
+}
+
+.contact-details a {
+  color: #0b7d8b;
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+/* Fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide-up animation for cards */
+.slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 0.8s forwards;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Button hover */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: #57dce0;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+  background-color: #07bbbb;
+  transform: translateY(-2px);
+}
+
+/* Input focus effect */
+.contact-card input,
+.contact-card textarea {
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-card input:focus,
+.contact-card textarea:focus {
+  border-color: #14b6c2;
+  box-shadow: 0 0 5px rgba(32, 214, 238, 0.5);
+  outline: none;
+padding: 0.7rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* 3D contact card */
+.contact-card {
+  max-width: 600px;
+  height: 2000px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background-color: #ffffff; /* white card for contrast */
+  border-radius: 10px;
+  text-align: left;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15); /* 3D lift effect */
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* Hover effect for 3D lift */
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Form fields */
+.contact-card form label {
+  display: block;
+  margin-top: 5rem;
+  font-weight: bold;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+}
+
+.contact-card form input,
+.contact-card form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* subtle inner depth */
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+}
+
+.contact-card form input:focus,
+.contact-card form textarea:focus {
+  border-color: #087886;
+  box-shadow: 0 0 5px rgba(21, 138, 153, 0.5); /* glow effect */
+  outline: none;
+  margin-top: 1rem;
+  width: 100%;
+  background-color: #0077cc;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Button */
+.contact-card form .btn {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: #0077cc;
+  color: #fff;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-card form .btn:hover {
+  background-color: rgb(3, 125, 129);
+  transform: translateY(-2px); /* lift on hover for 3D feel */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.contact-card form .btn {
+  margin-top: 1rem;
+  width: 100%;
+  background-color: #0077cc;
+  color: #fff;
+  border-radius: 12px; /* rounded button corners */
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Flat About Page Cards (no 3D shadow) */
+.flat-card {
+  max-width: 800px;
+  margin: 5rem;
+  padding: 5rem;
+  background-color: rgb(209, 172, 178);
+  border-radius: 20px; /* still rounded */
+  border: 1px solid #e0e0e0; /* subtle flat border */
+  align-items: center;
+}
+
+.flat-card:hover {
+  transform: none; /* no lift */
+  box-shadow: none; /* remove 3D shadow */
+}
+
+/* List style */
+.about-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.about-details li {
+  margin: 0.5rem 0;
+}

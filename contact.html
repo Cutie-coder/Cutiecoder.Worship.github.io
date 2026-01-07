@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Worship Ndlovu</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #28b9b9;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+    .menu-toggle {
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: none; /* hide on desktop */
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .dropdown-menu.active {
+      display: block;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 2rem;
+        background: #050505;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
+
+      nav.active {
+        display: block;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+      }
+    }
+
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      background-color: #024c52;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .project {
+      background-color: #1aa2ac;
+      padding: 2rem;
+      border-radius: 8px;
+    }
+
+    footer {
+      background-color: #93b1b6;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .social a {
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: white;
+    }
+
+    .contact-card {
+      background: #f4f4f4;
+      padding: 4rem;
+      border-radius: 10px;
+      max-width: 400px;
+      max-height: 2000px;
+      margin: 5rem auto;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .contact-card form label {
+      display: block;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .contact-card form input,
+.contact-card form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 12px; /* rounded corners for inputs */
+  font-size: 1rem;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>WSN Portfolio</h1>
+    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <nav class="dropdown-menu">
+      <b><ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul></b>
+    </nav>
+  </header>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2 class="fade-in">Contact Me</h2>
+    <p class="fade-in delay-1">Feel free to reach out for collaboration or inquiries.</p>
+
+    <div class="contact-card">
+<form id="contact-form" action="https://formspree.io/f/xyzabcde" method="POST">
+  <label for="name">Full Name</label>
+  <input type="text" name="name" id="name" required />
+
+  <label for="email">Email Address</label>
+  <input type="email" name="email" id="email" required />
+
+  <label for="message">Message</label>
+  <textarea name="message" id="message" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+
+<p id="response-message"></p>
+
+<script>
+  const form = document.getElementById("contact-form");
+  const responseMsg = document.getElementById("response-message");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+      method: form.method,
+      body: data,
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      responseMsg.textContent = "✅ Message sent successfully!";
+      form.reset();
+    } else {
+      responseMsg.textContent = "❌ Something went wrong. Please try again.";
+    }
+  });
+</script>
+    </div>
+
+    <div class="contact-details slide-up delay-3">
+      <h3>Contact Details</h3>
+      <p>Email: worshipndlovu0616@gmail.com</p>
+      <p>Phone: 073 953 6417</p>
+      <p>Location: Roodepoort, Johannesburg</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Strive for progress, not perfection.</p>
+    <div class="social">
+      <a href="#">Twitter</a>
+      <a href="https://www.linkedin.com/in/worship-ndlovu-963411235/">LinkedIn</a>
+    </div>
+  </footer>
+</body>
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS with your public key
+  (function() {
+    emailjs.init("NassINp6C8Wv27KQa"); // Replace with your EmailJS Public Key
+  })();
+
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    // Show a sending message
+    const btn = this.querySelector("button");
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+
+    // Send the form data
+    emailjs.sendForm("service_gytc7i6", "template_olobt9s", this)
+      .then(function() {
+        alert("✅ Message sent successfully! Thank you for reaching out.");
+        btn.disabled = false;
+        btn.textContent = "Send Message";
+        document.getElementById("contactForm").reset();
+      }, function(error) {
+        alert("❌ Failed to send message. Please try again later.");
+        console.error(error);
+        btn.disabled = false;
+        btn.textContent = "Send Message";
+      });
+  });
+</script>
+
+
+</html>
